@@ -9,13 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Core", "TodoList.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Infrastructure", "TodoList.Infrastructure\TodoList.Infrastructure.csproj", "{DA9F4EF3-9EF0-4361-A5CB-D5CC2A76555D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{E862FFD2-2B18-4E0D-AFD6-BB4D41D3B1D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{294C8CFE-31A8-44D4-BFE8-C9FC0C643DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,8 @@ Global
 		{DA9F4EF3-9EF0-4361-A5CB-D5CC2A76555D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA9F4EF3-9EF0-4361-A5CB-D5CC2A76555D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA9F4EF3-9EF0-4361-A5CB-D5CC2A76555D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
