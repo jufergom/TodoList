@@ -6,7 +6,6 @@ public interface IRepository<T>  where T : class
 {
     IQueryable<T> GetAll();
     T GetById(int id);
-    IQueryable<T> Find(Expression<Func<T, bool>> expression);
     void Add(T entity);
     void AddRange(IEnumerable<T> entities);
     void Update(T entity);

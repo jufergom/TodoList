@@ -29,17 +29,8 @@ public class Repository<T> : IRepository<T>  where T : class
 
     public T GetById(int id)
     {
-        var entity = _context.Set<T>().Find(id);
-        if(entity == null)
-        {
-            throw new KeyNotFoundException();
-        }
+        var entity = _context.Set<T>().Find(id) ?? throw new KeyNotFoundException();
         return entity;
-    }
-
-    public IQueryable<T> Find(Expression<Func<T, bool>> expression)
-    {
-        return _context.Set<T>().Where(expression);
     }
 
     public void Remove(T entity)
@@ -59,11 +50,11 @@ public class Repository<T> : IRepository<T>  where T : class
 
     public void Update(T entity)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Update(entity);
     }
 
     public void UpdateRange(IEnumerable<T> entities)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().UpdateRange(entities);
     }
 }
