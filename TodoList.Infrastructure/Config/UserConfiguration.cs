@@ -15,10 +15,5 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasOne(u => u.Role)
             .WithMany(r => r.Users)
             .HasForeignKey(u => u.RoleId);
-
-        builder.HasMany(u => u.TodoTasks)
-            .WithOne(t => t.User)
-            .HasForeignKey(t => t.TodoTaskId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }
