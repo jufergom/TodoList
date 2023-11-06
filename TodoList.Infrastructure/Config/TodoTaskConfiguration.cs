@@ -8,7 +8,7 @@ public class TodoTaskConfiguration : IEntityTypeConfiguration<TodoTask>
 {
     public void Configure(EntityTypeBuilder<TodoTask> builder)
     {
-        builder.HasKey(t => t.TodoTaskId);
+        builder.HasKey(t => t.Id);
         builder.Property(t => t.Description).IsRequired();
         builder.Property(t => t.Completed).IsRequired();
 

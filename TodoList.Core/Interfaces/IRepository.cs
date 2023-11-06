@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace Namespace;
 
-public interface IRepository<T>  where T : class
+public interface IRepository<T>  where T : BaseEntity
 {
     IQueryable<T> GetAll();
     T GetById(int id);

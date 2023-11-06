@@ -19,19 +19,19 @@ public class TodoListContext : DbContext
 
         //seeding
         modelBuilder.Entity<Role>().HasData(
-            new Role { RoleId = 1, RoleName = "Admin" },
-            new Role { RoleId = 2, RoleName = "User" }
+            new Role { Id = 1, RoleName = "Admin" },
+            new Role { Id = 2, RoleName = "User" }
         );
 
         modelBuilder.Entity<User>().HasData(
-            new User { UserId = 1, Username = "admin", Password = "1234", RoleId = 1 },
-            new User { UserId = 2, Username = "jufergom", Password = "juferpassword", RoleId = 2 }
+            new User { Id = 1, Username = "admin", Password = "1234", RoleId = 1 },
+            new User { Id = 2, Username = "jufergom", Password = "juferpassword", RoleId = 2 }
         );
 
         modelBuilder.Entity<TodoTask>().HasData(
-            new TodoTask { TodoTaskId = 1, Description = "Hacer tarea 1", Completed = false, UserId = 1 },
-            new TodoTask { TodoTaskId = 2, Description = "Hacer tarea 2", Completed = true, UserId = 1 },
-            new TodoTask { TodoTaskId = 3, Description = "Hacer tarea 3", Completed = false, UserId = 2 }
+            new TodoTask { Id = 1, Description = "Hacer tarea 1", Completed = false, UserId = 1 },
+            new TodoTask { Id = 2, Description = "Hacer tarea 2", Completed = true, UserId = 1 },
+            new TodoTask { Id = 3, Description = "Hacer tarea 3", Completed = false, UserId = 2 }
         );
     }
 

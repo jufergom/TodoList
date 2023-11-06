@@ -1,8 +1,9 @@
-﻿namespace TodoList.Core;
+﻿using Namespace;
 
-public class User
+namespace TodoList.Core;
+
+public class User : BaseEntity
 {
-    public int UserId { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
 

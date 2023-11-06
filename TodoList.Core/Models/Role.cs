@@ -1,8 +1,9 @@
-﻿namespace TodoList.Core;
+﻿using Namespace;
 
-public class Role
+namespace TodoList.Core;
+
+public class Role : BaseEntity
 {
-    public int RoleId { get; set; }
     public string RoleName { get; set; }
 
     //navigation properties

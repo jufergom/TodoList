@@ -10,7 +10,7 @@ using TodoList.Infrastructure;
 namespace TodoList.Infrastructure.Migrations
 {
     [DbContext(typeof(TodoListContext))]
-    [Migration("20231106042935_InitialCreate")]
+    [Migration("20231106234655_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -23,7 +23,7 @@ namespace TodoList.Infrastructure.Migrations
 
             modelBuilder.Entity("TodoList.Core.Role", b =>
                 {
-                    b.Property<int>("RoleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -31,26 +31,26 @@ namespace TodoList.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("RoleId");
+                    b.HasKey("Id");
 
                     b.ToTable("Role");
 
                     b.HasData(
                         new
                         {
-                            RoleId = 1,
+                            Id = 1,
                             RoleName = "Admin"
                         },
                         new
                         {
-                            RoleId = 2,
+                            Id = 2,
                             RoleName = "User"
                         });
                 });
 
             modelBuilder.Entity("TodoList.Core.TodoTask", b =>
                 {
-                    b.Property<int>("TodoTaskId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -64,7 +64,7 @@ namespace TodoList.Infrastructure.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("TodoTaskId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -73,21 +73,21 @@ namespace TodoList.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            TodoTaskId = 1,
+                            Id = 1,
                             Completed = false,
                             Description = "Hacer tarea 1",
                             UserId = 1
                         },
                         new
                         {
-                            TodoTaskId = 2,
+                            Id = 2,
                             Completed = true,
                             Description = "Hacer tarea 2",
                             UserId = 1
                         },
                         new
                         {
-                            TodoTaskId = 3,
+                            Id = 3,
                             Completed = false,
                             Description = "Hacer tarea 3",
                             UserId = 2
@@ -96,7 +96,7 @@ namespace TodoList.Infrastructure.Migrations
 
             modelBuilder.Entity("TodoList.Core.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -111,7 +111,7 @@ namespace TodoList.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
@@ -120,14 +120,14 @@ namespace TodoList.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 1,
+                            Id = 1,
                             Password = "1234",
                             RoleId = 1,
                             Username = "admin"
                         },
                         new
                         {
-                            UserId = 2,
+                            Id = 2,
                             Password = "juferpassword",
                             RoleId = 2,
                             Username = "jufergom"

@@ -20,14 +20,14 @@ namespace TodoList.Infrastructure.Migrations
                 name: "Role",
                 columns: table => new
                 {
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RoleName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Role", x => x.RoleId);
+                    table.PrimaryKey("PK_Role", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -35,7 +35,7 @@ namespace TodoList.Infrastructure.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Username = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -45,12 +45,12 @@ namespace TodoList.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Users_Role_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Role",
-                        principalColumn: "RoleId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -59,7 +59,7 @@ namespace TodoList.Infrastructure.Migrations
                 name: "TodoTasks",
                 columns: table => new
                 {
-                    TodoTaskId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -68,19 +68,19 @@ namespace TodoList.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoTasks", x => x.TodoTaskId);
+                    table.PrimaryKey("PK_TodoTasks", x => x.Id);
                     table.ForeignKey(
                         name: "FK_TodoTasks_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.InsertData(
                 table: "Role",
-                columns: new[] { "RoleId", "RoleName" },
+                columns: new[] { "Id", "RoleName" },
                 values: new object[,]
                 {
                     { 1, "Admin" },
@@ -89,7 +89,7 @@ namespace TodoList.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "UserId", "Password", "RoleId", "Username" },
+                columns: new[] { "Id", "Password", "RoleId", "Username" },
                 values: new object[,]
                 {
                     { 1, "1234", 1, "admin" },
@@ -98,7 +98,7 @@ namespace TodoList.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "TodoTasks",
-                columns: new[] { "TodoTaskId", "Completed", "Description", "UserId" },
+                columns: new[] { "Id", "Completed", "Description", "UserId" },
                 values: new object[,]
                 {
                     { 1, false, "Hacer tarea 1", 1 },

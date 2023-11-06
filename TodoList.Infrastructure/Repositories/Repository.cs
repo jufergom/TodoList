@@ -3,7 +3,7 @@ using TodoList.Infrastructure;
 
 namespace Namespace;
 
-public class Repository<T> : IRepository<T>  where T : class
+public class Repository<T> : IRepository<T>  where T : BaseEntity
 {
     private readonly TodoListContext _context;
 
@@ -14,7 +14,7 @@ public class Repository<T> : IRepository<T>  where T : class
 
     public void Add(T entity)
     {
-         _context.Set<T>().Add(entity);
+        _context.Set<T>().Add(entity);
     }
 
     public void AddRange(IEnumerable<T> entities)

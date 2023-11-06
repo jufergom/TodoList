@@ -1,8 +1,9 @@
-﻿namespace TodoList.Core;
+﻿using Namespace;
 
-public class TodoTask
+namespace TodoList.Core;
+
+public class TodoTask : BaseEntity
 {
-    public int TodoTaskId { get; set; }
     public string Description { get; set; }
     public bool Completed { get; set; }
 
