@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.MySqlClient;
 using TodoList.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +11,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TodoListContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("Default"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("Default")),
+        options => options.EnableRetryOnFailure(
+                    maxRetryCount: 1,
+                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null)
+    )
+);
 
 var app = builder.Build();
 
@@ -21,13 +28,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-
-        var context = services.GetRequiredService<TodoListContext>();    
-        context.Database.Migrate();
-    }
 }
 
 app.UseHttpsRedirection();
