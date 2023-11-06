@@ -9,7 +9,7 @@ public class Repository<T> : IRepository<T>  where T : class
 
     public Repository(TodoListContext context) 
     {
-        context = _context;
+        _context = context;
     }
 
     public void Add(T entity)
