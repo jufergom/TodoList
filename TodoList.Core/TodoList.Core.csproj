@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <Folder Include="DataTransferObjects/" />
-    <Folder Include="Services/" />
-    <Folder Include="Interfaces/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Result.AspNetCore" Version="7.2.0" />
   </ItemGroup>
 
 </Project>

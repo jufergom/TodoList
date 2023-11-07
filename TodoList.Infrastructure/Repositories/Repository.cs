@@ -29,8 +29,7 @@ public class Repository<T> : IRepository<T>  where T : BaseEntity
 
     public T GetById(int id)
     {
-        var entity = _context.Set<T>().Find(id) ?? throw new KeyNotFoundException();
-        return entity;
+        return _context.Set<T>().Find(id);
     }
 
     public void Remove(T entity)
