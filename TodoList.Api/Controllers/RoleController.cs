@@ -32,7 +32,7 @@ public class RoleController : ControllerBase
     }
 
     [HttpPost(Name = "PostRole")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public ActionResult<RoleDTO> Post([FromBody] RoleDTO roleDto)
     {
@@ -40,7 +40,7 @@ public class RoleController : ControllerBase
     }
 
     [HttpPut("{id}", Name = "PutRole")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult Put(int id, [FromBody] RoleDTO roleDto)
@@ -49,7 +49,7 @@ public class RoleController : ControllerBase
     }
 
     [HttpDelete("{id}", Name = "DeleteRole")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<RoleDTO> Delete(int id)
     {
